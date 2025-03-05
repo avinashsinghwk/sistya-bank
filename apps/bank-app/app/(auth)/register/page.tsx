@@ -1,12 +1,9 @@
-import { getServerSession } from "next-auth";
-import { Auth_Options } from "../../../lib/auth";
+import { RegisterForm } from "@/components/RegisterForm";
 
 export default async function RegisterPage() {
-  const session = await getServerSession(Auth_Options);
   return (
-    <div>
-      <div>Register yourself</div>
-      {JSON.stringify(session)}
+    <div className="flex items-center justify-center w-full h-screen">
+      <RegisterForm />
     </div>
   );
 }

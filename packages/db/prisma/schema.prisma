@@ -14,13 +14,18 @@ datasource db {
 }
 
 model User {
-    id                     String   @id @default(uuid())
-    name                   String 
-    number                 String   @unique
-    password               String
-    balance                Int
-    withdrawTransactions   WithdrawTransaction[]
-    receivedTransactions   ReceivedTransaction[]
+    id                        String                 @id @default(uuid())
+    name                      String? 
+    number                    String                 @unique
+    password                  String?
+    balance                   Int?
+    withdrawTransactions      WithdrawTransaction[]
+    receivedTransactions      ReceivedTransaction[]
+    isVerified                Boolean                @default(false)
+    verificationOtp           String?
+    verificationOtpExpiry     DateTime?
+    forgotPasswordOtp         String?
+    forgotPasswordOtpExpiry   DateTime?   
 }
 
 model WithdrawTransaction {

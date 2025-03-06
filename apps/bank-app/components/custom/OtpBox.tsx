@@ -1,3 +1,5 @@
+"use client";
+
 import {
   InputOTP,
   InputOTPGroup,
@@ -5,9 +7,14 @@ import {
   InputOTPSlot,
 } from "../ui/input-otp";
 
-export function OtpBox() {
+export function OtpBox({ setOtp }: { setOtp: (value: string) => void }) {
   return (
-    <InputOTP maxLength={6}>
+    <InputOTP
+      onChange={(value) => {
+        setOtp(value);
+      }}
+      maxLength={6}
+    >
       <InputOTPGroup className="gap-8">
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />

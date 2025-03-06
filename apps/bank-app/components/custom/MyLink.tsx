@@ -2,14 +2,14 @@ import Link from "next/link";
 
 interface LinkProps {
   href: string;
-  text: string;
+  children: React.ReactNode;
   className: string;
 }
 
-export function MyLink({ href, text, className }: LinkProps) {
+export function MyLink({ href, children, className }: LinkProps) {
   return (
     <Link className={className} href={href}>
-      {text}
+      {children}
     </Link>
   );
 }

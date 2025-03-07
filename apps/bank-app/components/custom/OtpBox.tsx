@@ -15,13 +15,13 @@ export function OtpBox({ setOtp }: { setOtp: (value: string) => void }) {
       }}
       maxLength={6}
     >
-      <InputOTPGroup className="gap-8">
+      <InputOTPGroup className="gap-7.5">
         <InputOTPSlot index={0} />
         <InputOTPSlot index={1} />
         <InputOTPSlot index={2} />
       </InputOTPGroup>
       <InputOTPSeparator />
-      <InputOTPGroup className="gap-8">
+      <InputOTPGroup className="gap-7.5">
         <InputOTPSlot index={3} />
         <InputOTPSlot index={4} />
         <InputOTPSlot index={5} />

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  InputOTP,
-  InputOTPGroup,
-  InputOTPSeparator,
-  InputOTPSlot,
-} from "../ui/input-otp";
+import { InputOTP, InputOTPGroup, InputOTPSlot } from "../ui/input-otp";
 
 export function OtpBox({ setOtp }: { setOtp: (value: string) => void }) {
   return (
@@ -14,17 +9,17 @@ export function OtpBox({ setOtp }: { setOtp: (value: string) => void }) {
         setOtp(value);
       }}
       maxLength={6}
+      className="w-full"
     >
-      <InputOTPGroup className="gap-7.5">
-        <InputOTPSlot index={0} />
-        <InputOTPSlot index={1} />
-        <InputOTPSlot index={2} />
-      </InputOTPGroup>
-      <InputOTPSeparator />
-      <InputOTPGroup className="gap-7.5">
-        <InputOTPSlot index={3} />
-        <InputOTPSlot index={4} />
-        <InputOTPSlot index={5} />
+      <InputOTPGroup className="w-full">
+        <div className="flex w-full justify-between">
+          <InputOTPSlot index={0} />
+          <InputOTPSlot index={1} />
+          <InputOTPSlot index={2} />
+          <InputOTPSlot index={3} />
+          <InputOTPSlot index={4} />
+          <InputOTPSlot index={5} />
+        </div>
       </InputOTPGroup>
     </InputOTP>
   );

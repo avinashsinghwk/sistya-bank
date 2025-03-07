@@ -6,7 +6,7 @@ import { Landmark } from "lucide-react";
 
 export default function LoginPage() {
   return (
-    <div className="flex items-center justify-center w-full h-screen relative">
+    <div className="flex items-center p-6 sm:p-0 justify-center w-full h-screen relative">
       <div className="absolute top-3 left-3">
         <MyLink className="" href="/">
           <Label className="cursor-pointer font-bold">

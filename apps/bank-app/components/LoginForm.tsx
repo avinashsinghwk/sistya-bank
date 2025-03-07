@@ -23,7 +23,7 @@ export function LoginForm() {
   }, [number, password]);
 
   return (
-    <div className="flex flex-col w-1/3 shadow-lg p-4">
+    <div className="flex flex-col w-full sm:w-2/3 md:w-1/2 lg:w-1/3 shadow-lg p-4">
       <h1 className="font-sans text-3xl font-extrabold text-slate-800 text-center mb-8">
         Login to Sistya Bank
       </h1>

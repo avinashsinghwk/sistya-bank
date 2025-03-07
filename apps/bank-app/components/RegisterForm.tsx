@@ -28,6 +28,7 @@ export function RegisterForm() {
   const [hideTopInfo, setHideTopInfo] = useState<boolean>(true);
   const [receivedOtp, setReceivedOtp] = useState<string | null | undefined>("");
   const router = useRouter();
+
   useEffect(() => {
     if (
       name &&
@@ -47,7 +48,7 @@ export function RegisterForm() {
   }, [number]);
 
   return (
-    <div className="flex flex-col w-1/3 shadow-lg p-4">
+    <div className="flex flex-col w-full sm:w-2/3 md:w-1/2 lg:w-1/3 shadow-lg p-4">
       <TopInfoShower setHide={setHideTopInfo} hide={hideTopInfo}>
         <p className="font-bold text-white">
           I am Gareeb <span className="text-2xl">🤒</span>, can't send you otp.
@@ -65,7 +66,7 @@ export function RegisterForm() {
           type="number"
           onChange={(value) => setNumber(value)}
         />
-        <div className="flex gap-4">
+        <div className="w-full flex gap-6 flex-wrap sm:flex-nowrap justify-end sm:justify-between">
           <OtpBox setOtp={setOtp} />
           <LoaderButton
             onClick={async () => {
@@ -94,7 +95,7 @@ export function RegisterForm() {
           type="text"
           onChange={(value) => setName(value)}
         />
-        <div className="flex gap-4">
+        <div className="flex flex-col sm:flex-row sm:gap-4 gap-6">
           <PasswordInput
             placeholder="Enter Password"
             icon={<LockKeyhole color="red" size={18} />}

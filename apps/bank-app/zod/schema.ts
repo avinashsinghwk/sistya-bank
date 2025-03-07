@@ -27,3 +27,17 @@ export const loginSchema = z
   .strict();
 
 export type loginSchemaType = z.infer<typeof loginSchema>;
+
+export const forgotPasswordSchema = z
+  .object({
+    number: z
+      .string()
+      .length(10, { message: "Number should be exactly of 10 digits" }),
+    password: z
+      .string()
+      .min(6, { message: "Password must be at least 6 characters long" }),
+    otp: z.string().length(6, { message: "Otp should be of 6 digits" }),
+  })
+  .strict();
+
+export type forgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>;

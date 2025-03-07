@@ -3,6 +3,7 @@ import prisma from "@repo/db/prisma";
 import { NextAuthOptions, Session } from "next-auth";
 import { JWT } from "next-auth/jwt";
 import bcrypt from "bcryptjs";
+import { loginSchema } from "@/zod/schema";
 
 export const Auth_Options: NextAuthOptions = {
   providers: [
@@ -17,14 +18,19 @@ export const Auth_Options: NextAuthOptions = {
         },
       },
       async authorize(credentials) {
-        if (!credentials?.password || !credentials.number) return null;
+        if (!credentials) return null;
+        const { success } = loginSchema.safeParse({
+          number: credentials.number,
+          password: credentials.password,
+        });
+        if (!success) return null;
         try {
           const userExisted = await prisma.user.findFirst({
             where: { number: credentials.number },
           });
+          if (!userExisted || !userExisted.isVerified) return null;
           if (
-            !userExisted ||
-            !(await bcrypt.compare(credentials.password, userExisted.password))
+            !(await bcrypt.compare(credentials.password, userExisted.password!))
           )
             return null;
           return {
@@ -45,4 +51,7 @@ export const Auth_Options: NextAuthOptions = {
     },
   },
   secret: process.env.NEXTAUTH_SECRET || "",
+  pages: {
+    signIn: "/login",
+  },
 };

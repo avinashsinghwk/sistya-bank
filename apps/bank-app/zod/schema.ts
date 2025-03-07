@@ -14,3 +14,16 @@ export const registerAccountSchema = z
   .strict();
 
 export type registerAccountSchemaType = z.infer<typeof registerAccountSchema>;
+
+export const loginSchema = z
+  .object({
+    number: z
+      .string()
+      .length(10, { message: "Number should be exactly of 10 digits" }),
+    password: z
+      .string()
+      .min(6, { message: "Password must be at least 6 characters long" }),
+  })
+  .strict();
+
+export type loginSchemaType = z.infer<typeof loginSchema>;

@@ -74,7 +74,7 @@ export function LoginForm() {
               toast.error("Invalid credential");
             } else {
               toast.success("Login successfully");
-              router.push("/");
+              router.push("/home");
             }
             setIsButtonLoading(false);
           }}

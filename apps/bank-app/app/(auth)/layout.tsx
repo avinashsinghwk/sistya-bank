@@ -10,7 +10,7 @@ export default function AuthLayout({
   return (
     <div>
       <div className="absolute top-3 left-3 z-10">
-        <MyLink className="" href="/">
+        <MyLink className="" href="/home">
           <Label className="cursor-pointer font-bold">
             <Landmark color="red" size={24} /> Sistya Bank
           </Label>

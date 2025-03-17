@@ -21,7 +21,7 @@ export default function RootPage() {
         </p>
         <Button
           onClick={() => redirect("/register")}
-          className="mt-6 bg-red-600 text-white px-6 py-3 rounded-lg text-lg font-semibold shadow-lg hover:bg-red-700 transition"
+          className="mt-6 bg-red-600 text-white px-6 py-6 rounded-lg text-lg font-semibold shadow-lg hover:bg-red-700 transition cursor-pointer"
         >
           Create an Account
         </Button>
@@ -103,7 +103,7 @@ export default function RootPage() {
         </p>
         <Button
           onClick={() => redirect("/register")}
-          className="mt-6 bg-red-600 text-white px-8 py-4 rounded-xl text-lg font-semibold shadow-md hover:bg-red-700 transition"
+          className="mt-6 bg-red-600 text-white px-8 py-6 rounded-xl text-lg font-semibold shadow-md hover:bg-red-700 transition cursor-pointer"
         >
           Open an Account
         </Button>

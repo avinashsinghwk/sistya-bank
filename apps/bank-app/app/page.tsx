@@ -1,6 +1,5 @@
 "use client";
 
-import { Card } from "@/components/custom/Card";
 import { InfoBox } from "@/components/custom/InfoBox";
 import { MyCarousel } from "@/components/custom/MyCarousel";
 import { Testimonial } from "@/components/custom/Testimonial";

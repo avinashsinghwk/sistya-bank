@@ -1,10 +1,7 @@
-"use client";
-
 import { InfoBox } from "@/components/custom/InfoBox";
 import { MyCarousel } from "@/components/custom/MyCarousel";
+import { ServerButtonRouter } from "@/components/custom/ServerButtonRouter";
 import { Testimonial } from "@/components/custom/Testimonial";
-import { Button } from "@/components/ui/button";
-import { redirect } from "next/navigation";
 
 export default function RootPage() {
   return (
@@ -18,12 +15,12 @@ export default function RootPage() {
           Secure, fast, and innovative banking solutions tailored to your needs.
           Save, invest, and manage your transactions with ease.
         </p>
-        <Button
-          onClick={() => redirect("/register")}
+        <ServerButtonRouter
           className="mt-6 bg-red-600 text-white px-6 py-6 rounded-lg text-lg font-semibold shadow-lg hover:bg-red-700 transition cursor-pointer"
+          to="/home"
         >
           Create an Account
-        </Button>
+        </ServerButtonRouter>
       </section>
 
       {/* Carousel Section */}
@@ -100,12 +97,12 @@ export default function RootPage() {
         <p className="mt-2 text-gray-600 text-lg">
           Experience modern banking with security and convenience.
         </p>
-        <Button
-          onClick={() => redirect("/register")}
-          className="mt-6 bg-red-600 text-white px-8 py-6 rounded-xl text-lg font-semibold shadow-md hover:bg-red-700 transition cursor-pointer"
+        <ServerButtonRouter
+          className="mt-6 bg-red-600 text-white px-6 py-6 rounded-lg text-lg font-semibold shadow-lg hover:bg-red-700 transition cursor-pointer"
+          to="/home"
         >
           Open an Account
-        </Button>
+        </ServerButtonRouter>
       </section>
     </div>
   );

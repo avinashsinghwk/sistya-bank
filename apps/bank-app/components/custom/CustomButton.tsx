@@ -5,15 +5,25 @@ export function CustomButton({
   children,
   className,
   onClick,
-  varient
+  varient,
 }: {
   children: React.ReactNode;
   className?: string;
   onClick: any;
-  varient?: 'default'| 'destructive' | 'outline' | 'secondary' | 'link' | 'ghost'
+  varient?:
+    | "default"
+    | "destructive"
+    | "outline"
+    | "secondary"
+    | "link"
+    | "ghost";
 }) {
   return (
-    <Button variant={varient} onClick={onClick} className={`cursor-pointer ${className}`}>
+    <Button
+      variant={varient}
+      onClick={onClick}
+      className={`cursor-pointer ${className}`}
+    >
       {children}
     </Button>
   );

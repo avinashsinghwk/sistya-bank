@@ -4,7 +4,13 @@ import { SidebarItem } from "./SideBarItem";
 import { MyLink } from "./custom/MyLink";
 import { Label } from "./ui/label";
 
-export function SideBar({ isSideBar, setIsSideBar }: { isSideBar: boolean; setIsSideBar: React.Dispatch<React.SetStateAction<boolean>> }) {
+export function SideBar({
+  isSideBar,
+  setIsSideBar,
+}: {
+  isSideBar: boolean;
+  setIsSideBar: React.Dispatch<React.SetStateAction<boolean>>;
+}) {
   return (
     <div className={`sm:w-72 w-0 transition-all duration-300`}>
       <div
@@ -27,7 +33,11 @@ export function SideBar({ isSideBar, setIsSideBar }: { isSideBar: boolean; setIs
         <div className="flex flex-col gap-2 pt-40 z-30">
           <SidebarItem href="/home" title="Home" icon={<Home />} />
           <SidebarItem href="/account" title="Account" icon={<CircleUser />} />
-          <SidebarItem href="/transactions" title="History" icon={<History />} />
+          <SidebarItem
+            href="/transactions"
+            title="History"
+            icon={<History />}
+          />
         </div>
       </div>
     </div>

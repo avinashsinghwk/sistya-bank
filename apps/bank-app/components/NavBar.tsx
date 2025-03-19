@@ -5,7 +5,12 @@ import { Landmark, MenuIcon } from "lucide-react";
 import { DropMenu } from "./custom/DropMenu";
 import { CustomButton } from "./custom/CustomButton";
 
-export function NavBar({ session, setIsSideBar }: { session: any, setIsSideBar: React.Dispatch<React.SetStateAction<boolean>>
+export function NavBar({
+  session,
+  setIsSideBar,
+}: {
+  session: any;
+  setIsSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
     <nav className="px-4 z-30 sticky top-0 w-full h-12 bg-gray-50 flex justify-between items-center border-b-2 border-gray-200">
@@ -16,9 +21,9 @@ export function NavBar({ session, setIsSideBar }: { session: any, setIsSideBar: 
           </Label>
         </MyLink>
         <CustomButton
-        varient="ghost"
+          varient="ghost"
           onClick={() => {
-            setIsSideBar(true)
+            setIsSideBar(true);
           }}
           className="sm:hidden cursor-pointer"
         >

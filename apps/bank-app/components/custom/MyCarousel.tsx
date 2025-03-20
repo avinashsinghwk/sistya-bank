@@ -30,7 +30,10 @@ export function MyCarousel() {
     >
       <CarouselContent>
         {images.map((image, index) => (
-          <CarouselItem key={index} className="flex items-center justify-center">
+          <CarouselItem
+            key={index}
+            className="flex items-center justify-center"
+          >
             <div className="relative w-full h-[60vh]">
               <Image
                 src={image.src}

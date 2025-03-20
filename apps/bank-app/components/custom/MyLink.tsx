@@ -3,12 +3,13 @@ import Link from "next/link";
 interface LinkProps {
   href: string;
   children: React.ReactNode;
-  className: string;
+  className?: string;
+  changeTab?: boolean;
 }
 
-export function MyLink({ href, children, className }: LinkProps) {
+export function MyLink({ href, children, className, changeTab }: LinkProps) {
   return (
-    <Link className={className} href={href}>
+    <Link target={changeTab ? "_blank" : ""} className={className} href={href}>
       {children}
     </Link>
   );

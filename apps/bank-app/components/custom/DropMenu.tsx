@@ -1,3 +1,4 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,6 +15,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { UserAvatar } from "./UserAvatar";
+import { signOut } from "next-auth/react";
+import { CustomButton } from "./CustomButton";
+import { MyLink } from "./MyLink";
 
 export function DropMenu({ username }: { username: string }) {
   return (
@@ -24,53 +28,66 @@ export function DropMenu({ username }: { username: string }) {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-56">
-        <DropdownMenuLabel>{`Hii, ${username}`}</DropdownMenuLabel>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>
-            Profile
-            <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Billing
-            <DropdownMenuShortcut>⌘B</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Settings
-            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-          </DropdownMenuItem>
-          <DropdownMenuItem>
-            Keyboard shortcuts
-            <DropdownMenuShortcut>⌘K</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuGroup>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuSub>
-            <DropdownMenuSubTrigger>Invite users</DropdownMenuSubTrigger>
-            <DropdownMenuPortal>
-              <DropdownMenuSubContent>
-                <DropdownMenuItem>Email</DropdownMenuItem>
-                <DropdownMenuItem>Message</DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem>More...</DropdownMenuItem>
-              </DropdownMenuSubContent>
-            </DropdownMenuPortal>
-          </DropdownMenuSub>
-          <DropdownMenuItem>
-            New Team
-            <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
-          </DropdownMenuItem>
-        </DropdownMenuGroup>
-        <DropdownMenuSeparator />
-        <DropdownMenuItem>GitHub</DropdownMenuItem>
-        <DropdownMenuItem>Support</DropdownMenuItem>
-        <DropdownMenuItem disabled>API</DropdownMenuItem>
+        <DropdownMenuLabel>{`Hii, ${username.split(" ")[0]}`}</DropdownMenuLabel>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          Log out
-          <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
+          <MyLink href="/account" className="w-full h-full">
+            Profile
+          </MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <MyLink href="/policy" className="w-full h-full">
+            Our Policy
+          </MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <MyLink
+            href="https://github.com/avinashsinghwk"
+            changeTab={true}
+            className="w-full h-full"
+          >
+            Developer
+          </MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <MyLink
+            href="https://github.com/avinashsinghwk/sistya-bank"
+            changeTab={true}
+            className="w-full h-full"
+          >
+            Github
+          </MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <MyLink
+            href="https://x.com/avinashsinghwk"
+            changeTab={true}
+            className="w-full h-full"
+          >
+            Twitter
+          </MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuItem>
+          <MyLink
+            href="https://www.linkedin.com/in/avinash-singh-a27769239"
+            changeTab={true}
+            className="w-full h-full"
+          >
+            Linkdin
+          </MyLink>
+        </DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem>
+          <button
+            className="w-full h-full text-start cursor-pointer"
+            onClick={async () => {
+              await signOut();
+            }}
+          >
+            Log out
+          </button>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

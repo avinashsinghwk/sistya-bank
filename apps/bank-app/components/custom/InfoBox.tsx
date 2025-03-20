@@ -8,7 +8,7 @@ export function InfoBox({
   description: string;
 }) {
   return (
-    <Card className="hover:scale-110">
+    <Card className="transition hover:scale-110">
       <h3 className="text-xl font-semibold text-red-500">{title}</h3>
       <p className="mt-2 text-gray-600">{description}</p>
     </Card>

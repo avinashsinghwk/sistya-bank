@@ -8,12 +8,14 @@ interface PasswordInputProps {
   placeholder: string;
   onChange: (value: string) => void;
   icon: React.ReactNode;
+  value?: string;
 }
 
 export function PasswordInput({
   placeholder,
   onChange,
   icon,
+  value,
 }: PasswordInputProps) {
   const [type, setType] = useState<"text" | "password">("password");
   return (
@@ -23,6 +25,7 @@ export function PasswordInput({
         onChange={(e) => {
           onChange(e.target.value);
         }}
+        {...(value !== undefined && { value })}
         type={type}
         placeholder={placeholder}
         className="pl-8 focus-visible:border-2 focus-visible:border-red-700 placeholder:font-light font-bold text-slate-800"

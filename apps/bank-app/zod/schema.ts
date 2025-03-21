@@ -41,3 +41,19 @@ export const forgotPasswordSchema = z
   .strict();
 
 export type forgotPasswordSchemaType = z.infer<typeof forgotPasswordSchema>;
+
+export const transferMoneySchema = z
+  .object({
+    receiverNumber: z
+      .string()
+      .length(10, { message: "Number should be exactly of 10 digits" }),
+    password: z
+      .string()
+      .min(1, { message: "Password must be at least 1 characters long" }),
+    amount: z
+      .number()
+      .int({ message: "Amount must be a whole number (no decimals allowed)" }),
+  })
+  .strict();
+
+export type transferMoneySchemaType = z.infer<typeof transferMoneySchema>;

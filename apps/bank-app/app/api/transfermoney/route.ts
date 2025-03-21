@@ -31,10 +31,11 @@ export async function POST(req: NextRequest) {
         { status: 404 },
       );
     }
-    if (!sender.password || !(await bcrypt.compare(body.password, sender.password))) {
-      return NextResponse.json({ message: "Wrong Password" },
-        { status: 400 },
-      );
+    if (
+      !sender.password ||
+      !(await bcrypt.compare(body.password, sender.password))
+    ) {
+      return NextResponse.json({ message: "Wrong Password" }, { status: 400 });
     }
     if (sender.balance < body.amount) {
       return NextResponse.json(

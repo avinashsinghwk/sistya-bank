@@ -41,7 +41,6 @@ export function MyCarousel() {
                 fill
                 className="object-cover rounded-lg shadow-lg"
                 priority={index === 0} // Prioritize the first image
-                unoptimized
               />
             </div>
           </CarouselItem>

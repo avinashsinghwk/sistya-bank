@@ -15,7 +15,7 @@ export function NavBar({
   return (
     <nav className="px-4 z-30 sticky top-0 w-full h-12 bg-gray-50 flex justify-between items-center border-b-2 border-gray-200">
       <div className="flex items-center">
-        <MyLink className="hidden sm:flex" href="/home">
+        <MyLink className="hidden md:flex" href="/home">
           <Label className="cursor-pointer font-bold flex">
             <Landmark color="red" size={24} /> Sistya Bank
           </Label>
@@ -25,7 +25,7 @@ export function NavBar({
           onClick={() => {
             setIsSideBar(true);
           }}
-          className="sm:hidden cursor-pointer"
+          className="md:hidden cursor-pointer"
         >
           <MenuIcon />
         </CustomButton>

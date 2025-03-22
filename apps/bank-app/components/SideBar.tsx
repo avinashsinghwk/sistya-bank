@@ -12,13 +12,13 @@ export function SideBar({
   setIsSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
-    <div className={`sm:w-72 w-0 transition-all duration-300`}>
+    <div className={`md:w-72 w-0 transition-all duration-300`}>
       <div
-        className={`bg-gray-50 border-r-2 border-gray-200 flex flex-col h-screen sm:h-[calc(100vh-3rem)] w-72 fixed top-0 left-0 bottom-0 sm:top-12 z-30 ${
+        className={`bg-gray-50 border-r-2 border-gray-200 flex flex-col h-screen md:h-[calc(100vh-3rem)] w-72 fixed top-0 left-0 bottom-0 md:top-12 z-30 ${
           isSideBar ? "translate-x-0" : "-translate-x-full"
-        } sm:translate-x-0 transition-transform duration-300`}
+        } md:translate-x-0 transition-transform duration-300`}
       >
-        <div className="flex sm:hidden justify-between p-4">
+        <div className="flex md:hidden justify-between p-4">
           <MyLink className="" href="/home">
             <Label className="cursor-pointer font-bold flex">
               <Landmark color="red" size={24} /> Sistya Bank
@@ -34,7 +34,7 @@ export function SideBar({
           <SidebarItem href="/home" title="Home" icon={<Home />} />
           <SidebarItem href="/account" title="Account" icon={<CircleUser />} />
           <SidebarItem
-            href="/transactions"
+            href="/transactions/all"
             title="History"
             icon={<History />}
           />

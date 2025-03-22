@@ -27,7 +27,7 @@ export default function DashboardLayout({
       <NavBar setIsSideBar={setIsSideBar} session={session} />
       <div className="w-full flex">
         <SideBar setIsSideBar={setIsSideBar} isSideBar={isSideBar} />
-        <div className="w-full sm:w-[calc(100vw-18rem)]">{children}</div>
+        <div className="w-full md:w-[calc(100vw-18rem)]">{children}</div>
       </div>
     </div>
   );

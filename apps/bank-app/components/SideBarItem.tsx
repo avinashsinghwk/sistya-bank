@@ -13,18 +13,20 @@ export const SidebarItem = ({
 }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const selected = pathname === href;
+  const selected =
+    pathname.includes(href) ||
+    (pathname.includes("transactions") && href.includes("transactions"));
 
   return (
     <div
-      className={`flex ${selected ? "text-red-600" : "text-red-400"} cursor-pointer  p-2 pl-8`}
+      className={`flex ${selected ? "text-red-600" : "text-red-300"} cursor-pointer  p-2 pl-8`}
       onClick={() => {
         router.push(href);
       }}
     >
       <div className="pr-2">{icon}</div>
       <div
-        className={`font-bold ${selected ? "text-red-600" : "text-red-400"}`}
+        className={`font-bold ${selected ? "text-red-600" : "text-red-300"}`}
       >
         {title}
       </div>

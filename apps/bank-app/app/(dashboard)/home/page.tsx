@@ -34,17 +34,17 @@ export default function HomePage() {
           title="Transfer Money"
         />
         <Service
-          route="/transactions"
+          route="/transactions/all"
           icon={<History color="red" />}
           title="All Transactions"
         />
         <Service
-          route="/sendTransactions"
+          route="/transactions/send"
           icon={<MoveUpRight color="red" />}
           title="Send Transactions"
         />
         <Service
-          route="/receivedTransactions"
+          route="/transactions/received"
           icon={<MoveDownLeft color="red" />}
           title="Received Transactions"
         />

@@ -1,43 +1,29 @@
-"use client";
-
-import UserDetails, { UserDetailsResponse } from "@/actions/UserDetails";
-import { useSession } from "next-auth/react";
-import { useEffect, useState } from "react";
+import UserDetails from "@/actions/UserDetails";
 import { UserDetailsComponent } from "@/components/UserDetailsComponent";
-import { UserDetailsComponentSkeleton } from "@/components/custom/UserDetailsComponentSkleton";
+import { Auth_Options } from "@/lib/auth";
+import { getServerSession } from "next-auth";
 
-const AccountPage = () => {
-  const { data: session } = useSession();
-  const [loading, setLoading] = useState<boolean>(true);
-  const [userDetails, setUserDetails] = useState<UserDetailsResponse | null>(
-    null,
-  );
-
-  useEffect(() => {
-    async function fetchAccountDetails() {
-      if (!session || !session.user || !session.user.id) {
-        setLoading(false);
-        return;
-      }
-      const res = await UserDetails(session.user.id);
-      if (res.success && res.userDetails) {
-        setUserDetails(res.userDetails);
-      }
-      setLoading(false);
-    }
-
-    fetchAccountDetails();
-  }, [session]);
-
-  return (
-    <div>
-      {loading ? (
-        <UserDetailsComponentSkeleton />
-      ) : (
-        <UserDetailsComponent userDetails={userDetails} />
-      )}
-    </div>
-  );
+export const metadata = {
+  title: "Account - Sistya Bank",
+  description: "Know your account details here",
 };
 
-export default AccountPage;
+export default async function AccountPage() {
+  const session = await getServerSession(Auth_Options);
+
+  if (!session?.user?.id) {
+    return <p>Please log in to view account details.</p>;
+  }
+
+  const res = await UserDetails(session.user.id);
+
+  if (!res.success || !res.userDetails) {
+    return (
+      <div className="text-center text-red-600 font-semibold">
+        Please refresh the page
+      </div>
+    );
+  }
+
+  return <UserDetailsComponent userDetails={res.userDetails} />;
+}

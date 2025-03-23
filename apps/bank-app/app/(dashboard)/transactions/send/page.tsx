@@ -1,38 +1,12 @@
-"use client";
-import { Transaction } from "@/actions/AllTransactions";
 import SendTransactions from "@/actions/SendTransactions";
-import { TransactionTableSkleton } from "@/components/custom/TransactionTableSkleton";
 import { TransactionTable } from "@/components/TransactionTable";
-import { useEffect, useState } from "react";
-import { toast } from "sonner";
 
-export default function SendTransactionsPage() {
-  const [trxns, setTrxns] = useState<Transaction[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+export default async function SendTransactionsPage() {
+  const res = await SendTransactions();
 
-  useEffect(() => {
-    async function main() {
-      const res = await SendTransactions();
-      if (!res.success) {
-        toast.error(res.message);
-      } else {
-        if (res.trxns) {
-          setTrxns(res.trxns);
-          setLoading(false);
-        }
-      }
-    }
-    main();
-  }, []);
-  return (
-    <div>
-      {loading ? (
-        Array.from({ length: 3 }).map((_, index) => (
-          <TransactionTableSkleton key={index} />
-        ))
-      ) : (
-        <TransactionTable type="send" trxns={trxns} />
-      )}
-    </div>
-  );
+  if (!res.success || !res.trxns) {
+    return <p className="text-red-500">Failed to fetch sent transactions.</p>;
+  }
+
+  return <TransactionTable type="send" trxns={res.trxns} />;
 }

@@ -10,6 +10,11 @@ import {
   Newspaper,
 } from "lucide-react";
 
+export const metadata = {
+  title: "Home - Sistya Bank",
+  description: "Welcome to Sistya Bank, your trusted financial partner.",
+};
+
 export default function HomePage() {
   const services = [
     {

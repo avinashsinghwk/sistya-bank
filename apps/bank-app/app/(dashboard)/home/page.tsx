@@ -11,6 +11,34 @@ import {
 } from "lucide-react";
 
 export default function HomePage() {
+  const services = [
+    {
+      icon: <IndianRupee color="red" />,
+      title: "Check Balance",
+      route: "/home/checkbalance",
+    },
+    {
+      icon: <ArrowLeftRight color="red" />,
+      title: "Transfer Money",
+      route: "/home/transfer",
+    },
+    {
+      icon: <History color="red" />,
+      title: "All Transactions",
+      route: "/transactions/all",
+    },
+    {
+      icon: <MoveUpRight color="red" />,
+      title: "Send Transactions",
+      route: "/transactions/send",
+    },
+    {
+      icon: <MoveDownLeft color="red" />,
+      title: "Received Transactions",
+      route: "/transactions/received",
+    },
+  ];
+
   return (
     <div className="p-6 space-y-6">
       {/* Hero Section */}
@@ -22,32 +50,16 @@ export default function HomePage() {
       </div>
 
       {/* Services Section */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-        <Service
-          route="/home/checkbalance"
-          icon={<IndianRupee color="red" />}
-          title="Check Balance"
-        />
-        <Service
-          route="/home/transfer"
-          icon={<ArrowLeftRight color="red" />}
-          title="Transfer Money"
-        />
-        <Service
-          route="/transactions/all"
-          icon={<History color="red" />}
-          title="All Transactions"
-        />
-        <Service
-          route="/transactions/send"
-          icon={<MoveUpRight color="red" />}
-          title="Send Transactions"
-        />
-        <Service
-          route="/transactions/received"
-          icon={<MoveDownLeft color="red" />}
-          title="Received Transactions"
-        />
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6 p-4">
+        {services.map((service, index) => (
+          <Service
+            key={index}
+            icon={service.icon}
+            title={service.title}
+            route={service.route}
+          />
+        ))}
       </div>
 
       {/* Promotions & Offers */}

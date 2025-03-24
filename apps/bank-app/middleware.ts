@@ -4,9 +4,6 @@ import { getToken } from "next-auth/jwt";
 export async function middleware(request: NextRequest) {
   const authRoutes = ["/login", "/register", "/forgotpassword"];
   const { pathname } = request.nextUrl;
-  if (pathname === "/") {
-    return NextResponse.next();
-  }
   const token = await getToken({
     req: request,
     secret: process.env.NEXTAUTH_SECRET,
@@ -22,6 +19,11 @@ export async function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    "/((?!api/|_next/static/|_next/image/|favicon.ico|bank.webp|man.webp|woman.webp|queue.webp).*)",
+    "/login",
+    "/register",
+    "/forgotpassword",
+    "/home/:path*",
+    "/account/:path*",
+    "/transactions/:path*",
   ],
 };

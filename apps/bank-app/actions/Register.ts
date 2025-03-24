@@ -41,7 +41,7 @@ export default async function Register({
         message: "Incorrect otp | generate again",
       };
     }
-    const user = await prisma.user.update({
+    await prisma.user.update({
       where: { number, verificationOtp: otp },
       data: {
         isVerified: true,

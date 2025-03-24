@@ -33,7 +33,7 @@ export default async function ChangePassword({
         message: "Incorrect otp | generate again",
       };
     }
-    const user = await prisma.user.update({
+    await prisma.user.update({
       where: { number, forgotPasswordOtp: otp },
       data: {
         password: await bcrypt.hash(password, 12),

@@ -43,7 +43,6 @@ export function DropMenu({ username }: { username: string }) {
           </MyLink>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuSeparator />
         <DropdownMenuItem>
           <MyLink
             href="https://github.com/avinashsinghwk/sistya-bank"

@@ -24,7 +24,7 @@ export default function DashboardLayout({
 
   return (
     <div>
-      <NavBar setIsSideBar={setIsSideBar} session={session} />
+      <NavBar setIsSideBar={setIsSideBar} username={session.user.name} />
       <div className="w-full flex">
         <SideBar setIsSideBar={setIsSideBar} isSideBar={isSideBar} />
         <div className="w-full md:w-[calc(100vw-18rem)]">{children}</div>

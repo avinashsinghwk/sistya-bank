@@ -1,12 +1,5 @@
 "use client";
-import {
-  CreditCard,
-  IdCard,
-  User,
-  CheckCircle,
-  XCircle,
-  Phone,
-} from "lucide-react";
+import { IdCard } from "lucide-react";
 import { Card } from "./Card";
 
 export function UserDetailsComponentSkeleton() {

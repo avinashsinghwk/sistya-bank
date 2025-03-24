@@ -1,5 +1,5 @@
 "use client";
-import { LockKeyhole, PhoneCall, Send } from "lucide-react";
+import { LockKeyhole, PhoneCall } from "lucide-react";
 import { InputBox } from "./custom/InputBox";
 import { useState } from "react";
 import { PasswordInput } from "./custom/PasswordInput";
@@ -34,14 +34,13 @@ export function TransferMoneyForm() {
         },
       );
       const response = await res.json();
-      if (!response.ok) {
+      if (!res.ok) {
         throw new Error(
           response.message || `Error: ${res.status} ${res.statusText}`,
         );
       }
       toast.success(response.message);
     } catch (e: unknown) {
-      console.log(e);
       if (e instanceof Error) {
         toast.error(e.message);
       } else {

@@ -7,7 +7,7 @@ export function Service({
   title,
   route,
 }: {
-  icon: any;
+  icon: React.ReactNode;
   title: string;
   route: string;
 }) {

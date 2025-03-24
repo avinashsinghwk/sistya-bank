@@ -9,7 +9,7 @@ export function TopInfoShower({ children, hide, setHide }: TopInfoShowerProps) {
   if (hide) return null;
   return (
     <div
-      className={`w-full bg-red-700 text-white p-4 absolute top-0 left-0 right-0`}
+      className={`w-full bg-red-700 text-white p-4 absolute top-0 left-0 right-0 z-40`}
     >
       <div className="w-full h-full flex text-center items-center justify-center">
         {children}

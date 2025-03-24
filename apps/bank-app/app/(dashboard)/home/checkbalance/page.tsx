@@ -32,7 +32,7 @@ export default function CheckBalancePage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-gray-100 to-gray-300 p-6">
+    <div className="flex flex-col items-center justify-center p-6 min-h-[calc(100vh-3rem)] bg-gradient-to-br from-gray-100 to-gray-300">
       <div className="bg-white p-8 rounded-2xl shadow-xl w-full max-w-md">
         <h1 className="text-3xl font-bold text-center mb-2 text-red-600">
           Check Balance

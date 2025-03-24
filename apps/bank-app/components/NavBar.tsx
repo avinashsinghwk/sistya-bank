@@ -6,10 +6,10 @@ import { DropMenu } from "./custom/DropMenu";
 import { CustomButton } from "./custom/CustomButton";
 
 export function NavBar({
-  session,
+  username,
   setIsSideBar,
 }: {
-  session: any;
+  username: string;
   setIsSideBar: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   return (
@@ -30,7 +30,7 @@ export function NavBar({
           <MenuIcon />
         </CustomButton>
       </div>
-      <DropMenu username={`${session.user.name || ""}`} />
+      <DropMenu username={`${username || ""}`} />
     </nav>
   );
 }

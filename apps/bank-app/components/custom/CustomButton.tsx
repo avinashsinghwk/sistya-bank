@@ -9,7 +9,7 @@ export function CustomButton({
 }: {
   children: React.ReactNode;
   className?: string;
-  onClick: any;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   varient?:
     | "default"
     | "destructive"

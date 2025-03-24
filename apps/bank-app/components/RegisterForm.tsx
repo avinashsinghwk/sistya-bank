@@ -51,9 +51,10 @@ export function RegisterForm() {
     <div className="flex flex-col w-full sm:w-2/3 md:w-1/2 lg:w-1/3 shadow-lg p-4">
       <TopInfoShower setHide={setHideTopInfo} hide={hideTopInfo}>
         <p className="font-bold text-white">
-          I am Gareeb <span className="text-2xl">🤒</span>, can't send you otp.
-          Use <span className="text-lg tracking-widest">{receivedOtp}</span> as
-          temp otp
+          I am Gareeb <span className="text-2xl">🤒</span>, can&apos;t send you
+          otp. Use{" "}
+          <span className="text-lg tracking-widest">{receivedOtp}</span> as temp
+          otp
         </p>
       </TopInfoShower>
       <h1 className="font-sans text-3xl font-extrabold text-slate-800 text-center mb-8">

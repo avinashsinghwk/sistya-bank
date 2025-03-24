@@ -62,12 +62,15 @@ export function LoginForm() {
           onClick={async () => {
             setIsButtonLoading(true);
             setIsButtonDisabled(true);
+
             const res = await signIn("credentials", {
               number,
               password,
+              redirect: false,
             });
-            if (res?.ok) {
+            if (!res?.error) {
               toast.success("Login successfully");
+              window.location.href = "/home";
             } else {
               toast.error("Invalid credential");
             }

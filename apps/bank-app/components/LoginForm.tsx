@@ -8,14 +8,12 @@ import { InputBox } from "./custom/InputBox";
 import { LockKeyhole, PhoneCall } from "lucide-react";
 import { toast } from "sonner";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 export function LoginForm() {
   const [number, setNumber] = useState("");
   const [password, setPassword] = useState("");
   const [isBtnDisabled, setIsButtonDisabled] = useState<boolean>(true);
   const [isBtnLoading, setIsButtonLoading] = useState<boolean>(false);
-  const router = useRouter();
 
   useEffect(() => {
     if (number.length === 10 && password) setIsButtonDisabled(false);
@@ -65,16 +63,13 @@ export function LoginForm() {
             setIsButtonLoading(true);
             setIsButtonDisabled(true);
             const res = await signIn("credentials", {
-              redirect: false,
               number,
               password,
             });
-            console.log(res);
-            if (!res!.ok) {
-              toast.error("Invalid credential");
-            } else {
+            if (res?.ok) {
               toast.success("Login successfully");
-              router.push("/home");
+            } else {
+              toast.error("Invalid credential");
             }
             setIsButtonLoading(false);
           }}

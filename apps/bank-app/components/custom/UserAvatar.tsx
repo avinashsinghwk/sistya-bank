@@ -1,10 +1,11 @@
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar } from "../ui/avatar";
 
 export function UserAvatar({ text }: { text: string }) {
   return (
     <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" />
-      <AvatarFallback>{text}</AvatarFallback>
+      <span className="font-bold flex items-center justify-center rounded-full bg-amber-600 text-white h-full w-full">
+        {text}
+      </span>
     </Avatar>
   );
 }
